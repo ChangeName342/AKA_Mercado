@@ -78,48 +78,82 @@ def vista_admin(request):
     return render(request, 'gestion_productos.html', {'productos': productos})
 
 def registrar_producto(request):
-    idProd = request.POST['idProd']
-    nombre = request.POST['nombre']
-    precio = request.POST['precio']
-    imagen = request.FILES.get('imagen')
-    cantidad = request.POST['cantidad']
-    descripcion = request.POST['descripcion']
-    categoria = request.POST['categoria']
-
-    producto = Productos.objects.create(
-        idProd = idProd, nombre = nombre,precio = precio, imagen = imagen, cantidad = cantidad, descripcion = descripcion, categoria = categoria)
-    messages.success(request, 'Producto registrado!')
-    return redirect('vista_admin')
-
+    if request.method == 'POST':
+        idProd = int(request.POST['idProd'])
+        if idProd < 0:
+            messages.error(request, 'El ID del producto no puede ser negativo.')
+            return redirect('vista_admin') 
+        nombre = request.POST['nombre']
+        precio = float(request.POST['precio'])
+        if precio < 0:
+            messages.error(request, 'El precio del producto no puede ser negativo.')
+            return redirect('vista_admin')  
+        imagen = request.FILES.get('imagen')
+        cantidad = int(request.POST['cantidad'])
+        if cantidad < 0:
+            messages.error(request, 'La cantidad del producto no puede ser negativa.')
+            return redirect('vista_admin') 
+        descripcion = request.POST['descripcion']
+        categoria = request.POST['categoria']
+        categorias_permitidas = ['Rotisería', 'Bebidas y Abarrotes', 'Carnes']
+        if categoria not in categorias_permitidas:
+            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Bebidas y Abarrotes o Carnes')
+            return redirect('vista_admin')  
+        producto = Productos.objects.create(
+            idProd=idProd, nombre=nombre, precio=precio, imagen=imagen, cantidad=cantidad, descripcion=descripcion, categoria=categoria)
+        messages.success(request, 'Producto registrado!')
+        return redirect('vista_admin')
+    
 def edicion_producto(request, idProd):
     producto = Productos.objects.get(idProd = idProd)
     return render(request, "edicion_producto.html", {"producto": producto})
 
 
 def editar_producto(request):
-    idProd = request.POST['idProd']
-    nombre = request.POST['nombre']
-    precio = request.POST['precio']
-    imagen = request.FILES.get('imagen')
-    cantidad = request.POST['cantidad']
-    descripcion = request.POST['descripcion']
-    categoria = request.POST['categoria']
+    if request.method == 'POST':
+        idProd = int(request.POST['idProd'])
+        if idProd < 0:
+           
+            messages.error(request, 'El ID del producto no puede ser negativo.')
+            return redirect('vista_admin') 
 
-    producto = Productos.objects.get(idProd = idProd)
-    producto.nombre = nombre
-    producto.precio = precio
-    producto.imagen = imagen
-    producto.cantidad = cantidad
-    producto.descripcion = descripcion
-    producto.categoria = categoria
+        nombre = request.POST['nombre']
+        precio = float(request.POST['precio'])
+        if precio < 0:
+          
+            messages.error(request, 'El precio del producto no puede ser negativo.')
+            return redirect('vista_admin') 
 
-    producto.save()
+        imagen = request.FILES.get('imagen')
+        cantidad = int(request.POST['cantidad'])
+        if cantidad < 0:
+            
+            messages.error(request, 'La cantidad del producto no puede ser negativa.')
+            return redirect('vista_admin') 
 
-    messages.success(request, 'Producto actualizado!')
+        descripcion = request.POST['descripcion']
+        categoria = request.POST['categoria']
 
-    return redirect('vista_admin')
+        
+        categorias_permitidas = ['Rotisería', 'Bebidas y Abarrotes', 'Carnes']
+        if categoria not in categorias_permitidas:
+            
+            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Bebidas y Abarrotes o Carnes')
+            return redirect('vista_admin')  
 
+        producto = Productos.objects.get(idProd=idProd)
+        producto.nombre = nombre
+        producto.precio = precio
+        producto.imagen = imagen
+        producto.cantidad = cantidad
+        producto.descripcion = descripcion
+        producto.categoria = categoria
 
+        producto.save()
+
+        messages.success(request, 'Producto actualizado!')
+        return redirect('vista_admin')
+    
 def eliminar_producto(request, idProd):
     producto = Productos.objects.get(idProd = idProd)
     producto.delete()

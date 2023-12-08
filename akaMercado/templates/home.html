@@ -16,7 +16,7 @@
 </head>
 <body class="bg-dark">
     
-    <nav  class="navbar navbar-expand-lg bg-danger">
+    <nav class="navbar navbar-expand-lg bg-danger">
         <div class="container p-3">
             <div class="d-flex align-items-center">
                 <a class="navbar-brand text-white p-2" href="#">
@@ -24,46 +24,50 @@
                 </a>
                 <h1 class="text-white mb-0">AKÁ Mercado</h1>
             </div>
-    
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item mx-3">
-                        <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}"><strong>Home</strong></a>
-                    </li>
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}">
+                            <i class="bi bi-house-door"></i><strong> Home</strong>
+                        </a>
+                    </li>                    
                     <li class="nav-item mx-3">
-                        <a class="nav-link active text-white" aria-current="page" href="{% url 'nosotros' %}"><strong>Sobre Nosotros</strong></a>
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'nosotros' %}">
+                            <i class="bi bi-info-circle"></i><strong> Sobre Nosotros</strong>
+                        </a>
                     </li>
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <strong><i class="bi bi-grid"></i> Categorías</strong>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Cliente</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Rotisería</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" target="_blank">Staff</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Bebidas y Abarrotes</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" target="_blank">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Carnes</a></li>
                         </ul>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#"><strong>Ofertas</strong></a>
-                    </li>
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-tag"></i><strong> Ofertas</strong>
+                        </a>
+                    </li>                    
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i><strong> Cuenta</strong>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'login_cliente' %}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="{% url 'login_cliente' %}"><i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'login_admin' %}" target="_blank">Personal</a></li>
+                            <li><a class="dropdown-item" href="{% url 'login_admin' %}" target="_blank"><i class="bi bi-person"></i> Personal</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'registro' %}" target="_blank">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="{% url 'registro' %}" target="_blank"><i class="bi bi-person-plus"></i> Registrarse</a></li>
                         </ul>
-                    </li>
+                    </li>                    
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="carritoDropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-cart"></i>
@@ -90,29 +94,46 @@
             background-color: #28a745;
             color: white;
         }
-    </style>
 
+        .custom-link {
+            text-decoration: none; 
+            color: inherit; 
+        }
+    
+        .custom-link:hover {
+            color: inherit; 
+            text-decoration: none; 
+        }
+    </style>
+    
     <section class="include">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center">Rotiseria</h2><br>
-                    <img src="{% static 'images/rotiseria1.jpg' %}" class="img-fluid rounded w-100 h-100" alt=""><br>
-                    <button class="btn btn-danger mt-3">Comprar</button>
+                    <a href="URL_DESEADA" class="custom-link">
+                        <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center">Rotiseria</h2>
+                        <img src="{% static 'images/rotiseria1.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        <button class="btn btn-danger mt-3">Comprar</button>
+                    </a>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center">Bebidas y Abarrotes</h2><br>
-                    <img src="{% static 'images/bebidasabarrotes.avif' %}" class="img-fluid rounded w-100 h-100" alt=""><br>
-                    <button class="btn btn-danger mt-3">Comprar</button>
+                    <a href="URL_DESEADA" class="custom-link">
+                        <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center">Bebidas y Abarrotes</h2>
+                        <img src="{% static 'images/bebidasabarrotes.avif' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        <button class="btn btn-danger mt-3">Comprar</button>
+                    </a>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center">Carnes</h2><br>
-                    <img src="{% static 'images/carnes.jpeg' %}" class="img-fluid rounded w-100 h-100" alt=""><br>
-                    <button class="btn btn-danger mt-3">Comprar</button>
+                    <a href="URL_DESEADA" class="custom-link">
+                        <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center">Carnes</h2>
+                        <img src="{% static 'images/carnes.jpeg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        <button class="btn btn-danger mt-3">Comprar</button>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+    
 
 <br><br><br><br><br><br><br><br><br><br>
 
