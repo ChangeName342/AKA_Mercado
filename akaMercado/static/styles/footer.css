@@ -1,0 +1,16 @@
+footer a {
+    text-decoration: none;
+    font-size: 17px;
+}
+
+footer p {
+    font-size: 17px;
+}
+
+footer a:hover {
+    color: red !important;
+}
+
+footer i {
+    font-size: 25px;
+}
