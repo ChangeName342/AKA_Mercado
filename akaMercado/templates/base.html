@@ -23,7 +23,7 @@
                 <a class="navbar-brand text-white p-2" href="#">
                     <img src="{% static 'images/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
                 </a>
-                <h1 class="text-white mb-0">AKÁ Mercado</h1>
+                <h1 class="text-white mb-0">Administrador</h1>
             </div>
     
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,22 +36,13 @@
                         <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}"><strong>Home</strong></a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link active text-white" aria-current="page" href="{% url 'nosotros' %}"><strong>Sobre Nosotros</strong></a>
-                    </li>
-                    <li class="nav-item dropdown mx-3">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <strong><i class="bi bi-grid"></i> Categorías</strong>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Cliente</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" target="_blank">Staff</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" target="_blank">Registrarse</a></li>
-                        </ul>
+                        <a class="nav-link active text-white" aria-current="page" href="#"><strong>Gestión de Productos</strong></a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#"><strong>Ofertas</strong></a>
+                        <a class="nav-link active text-white" aria-current="page" href="#"><strong>Gestión de Clientes</strong></a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active text-white" aria-current="page" href="#"><strong>Gestión de Pedidos</strong></a>
                     </li>
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,27 +57,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown mx-3">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="carritoDropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-cart"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="carritoDropdown">
-                            <div id="carrito">
-                                <table id="lista-carrito">
-                                    
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <br><br>
-    <br><br>
-    <br><br>
     <div class="container py-4">
         {% block body %}
 
