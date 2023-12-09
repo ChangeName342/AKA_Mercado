@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
-from appPrincipal.views import index, registro, nosotros, login_admin, login_cliente, cerrar_sesion, vista_admin, vista_cliente
+from appPrincipal.views import index, registro, nosotros, login_admin, login_cliente, cerrar_sesion, vista_admin, vista_cliente, rotiseria, abarrotes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +30,9 @@ urlpatterns = [
     path('cerrar_sesion/', cerrar_sesion, name = 'cerrar_sesion'),
     path('vista_cliente/', vista_cliente, name = 'vista_cliente'),
     path('vista_admin/', vista_admin, name = 'vista_admin'),
-    path('', include('appPrincipal.urls'))
+    path('', include('appPrincipal.urls')),
+    path('rotiseria/', rotiseria, name = 'rotiseria'),
+    path('abarrotes/', abarrotes, name = 'abarrotes'),
 
 ]
 

@@ -70,7 +70,7 @@ def cerrar_sesion(request):
     return render(request, 'home.html')
 
 def vista_cliente(request):
-    return render(request, 'vista_cliente.html')
+    return render(request, 'home_cliente.html')
 
 def vista_admin(request):
     productos = Productos.objects.all()
@@ -95,9 +95,9 @@ def registrar_producto(request):
             return redirect('vista_admin') 
         descripcion = request.POST['descripcion']
         categoria = request.POST['categoria']
-        categorias_permitidas = ['Rotisería', 'Bebidas y Abarrotes', 'Carnes']
+        categorias_permitidas = ['Rotisería', 'Abarrotes', 'Carnes']
         if categoria not in categorias_permitidas:
-            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Bebidas y Abarrotes o Carnes')
+            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Abarrotes o Carnes')
             return redirect('vista_admin')  
         producto = Productos.objects.create(
             idProd=idProd, nombre=nombre, precio=precio, imagen=imagen, cantidad=cantidad, descripcion=descripcion, categoria=categoria)
@@ -135,10 +135,10 @@ def editar_producto(request):
         categoria = request.POST['categoria']
 
         
-        categorias_permitidas = ['Rotisería', 'Bebidas y Abarrotes', 'Carnes']
+        categorias_permitidas = ['Rotisería', 'Abarrotes', 'Carnes']
         if categoria not in categorias_permitidas:
             
-            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Bebidas y Abarrotes o Carnes')
+            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Abarrotes o Carnes')
             return redirect('vista_admin')  
 
         producto = Productos.objects.get(idProd=idProd)
@@ -161,3 +161,11 @@ def eliminar_producto(request, idProd):
     messages.success(request, 'Producto eliminado!')
 
     return redirect('vista_admin')
+
+def rotiseria(request):
+    productos_rotiseria = Productos.objects.filter(categoria='Rotisería')
+    return render(request, 'rotiseria.html', {'productos_rotiseria': productos_rotiseria})
+
+def abarrotes(request):
+    productos_abarrotes = Productos.objects.filter(categoria='Abarrotes')
+    return render(request, 'abarrotes.html', {'productos_abarrotes': productos_abarrotes})

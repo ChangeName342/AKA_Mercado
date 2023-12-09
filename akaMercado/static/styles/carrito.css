@@ -1,0 +1,30 @@
+.btn-3 {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-3:hover,
+.btn-3:focus {
+    background-color: #c82333;
+    border-color: #c82333;
+    color: white;
+    text-decoration: none;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}

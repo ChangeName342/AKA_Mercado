@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg bg-danger">
         <div class="container p-3">
             <div class="d-flex align-items-center">
-                <a class="navbar-brand text-white p-2" href="#">
+                <a class="navbar-brand text-white p-2" href="{% url 'home' %}">
                     <img src="{% static 'images/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
                 </a>
                 <h1 class="text-white mb-0">AKÁ Mercado</h1>
@@ -44,9 +44,9 @@
                             <strong><i class="bi bi-grid"></i> Categorías</strong>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Rotisería</a></li>
+                            <li><a class="dropdown-item" href="{% url 'rotiseria' %}"><i class="bi bi-filter"></i> Rotisería</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Bebidas y Abarrotes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'abarrotes' %}"><i class="bi bi-filter"></i> Abarrotes</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Carnes</a></li>
                         </ul>
@@ -91,7 +91,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <img class="img-fluid rounded-circle" src="{% static 'images/aka.jpg' %}" alt="">
+                <img class="img-fluid rounded-circle" src="{% static 'images/mercado.JPG' %}" alt="" width="320px" height="320px">
             </div>
         </div>
         <div class="row">
