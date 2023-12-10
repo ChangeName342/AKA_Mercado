@@ -4,7 +4,7 @@ from appPrincipal.models import Clientes, Productos, Administradores
 from . import forms
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
-
+from appPrincipal.Carrito import Carrito
 
 # Create your views here.
 def index(request):
@@ -169,3 +169,30 @@ def rotiseria(request):
 def abarrotes(request):
     productos_abarrotes = Productos.objects.filter(categoria='Abarrotes')
     return render(request, 'abarrotes.html', {'productos_abarrotes': productos_abarrotes})
+
+def productos(request):
+    productos = Productos.objects.all()
+    return render(request, 'productos.html', {'productos' : productos})
+
+def agregar_producto(request, idProd):
+    carrito = Carrito(request)
+    producto = Productos.objects.get(idProd=idProd)
+    carrito.agregar(producto)
+    return redirect("productos")
+
+def eliminar_producto(request, idProd):
+    carrito = Carrito(request)
+    producto = Productos.objects.get(idProd=idProd)
+    carrito.eliminar(producto)
+    return redirect("productos")
+
+def restar_producto(request, idProd):
+    carrito = Carrito(request)
+    producto = Productos.objects.get(idProd=idProd)
+    carrito.restar(producto)
+    return redirect("productos")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("productos")
