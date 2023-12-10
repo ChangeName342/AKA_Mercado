@@ -95,9 +95,9 @@ def registrar_producto(request):
             return redirect('vista_admin') 
         descripcion = request.POST['descripcion']
         categoria = request.POST['categoria']
-        categorias_permitidas = ['Rotisería', 'Abarrotes', 'Carnes']
+        categorias_permitidas = ['Rotisería', 'Abarrotes', 'Carnicería']
         if categoria not in categorias_permitidas:
-            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Abarrotes o Carnes')
+            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Abarrotes o Carnicería')
             return redirect('vista_admin')  
         producto = Productos.objects.create(
             idProd=idProd, nombre=nombre, precio=precio, imagen=imagen, cantidad=cantidad, descripcion=descripcion, categoria=categoria)
@@ -135,10 +135,10 @@ def editar_producto(request):
         categoria = request.POST['categoria']
 
         
-        categorias_permitidas = ['Rotisería', 'Abarrotes', 'Carnes']
+        categorias_permitidas = ['Rotisería', 'Abarrotes', 'Carnicería']
         if categoria not in categorias_permitidas:
             
-            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Abarrotes o Carnes')
+            messages.error(request, 'La categoría ingresada no es válida. Debe ser Rotisería, Abarrotes o Carnicería')
             return redirect('vista_admin')  
 
         producto = Productos.objects.get(idProd=idProd)
