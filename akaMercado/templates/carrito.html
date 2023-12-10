@@ -15,10 +15,8 @@
           {% for key, value in request.session.carrito.items %}
             <tr>
               <td>{{ value.nombre }}</td>
-              <td>{{ value.precio }}</td>
-              <td>{{ value.acumulado }}
-                <a href="{% if value.idProd %}{% url 'Add' value.idProd %}{% endif %}" class="btn btn-primary">Agregar al carrito</a>
-                <a href="{% if value.idProd %}{% url 'Sub' value.idProd %}{% endif %}" class="badge btn btn-dark badge-dark">-</a>
+              <td>${{ value.acumulado }}</td>
+              <td>{{ value.precio }}
               </td>
             </tr>
           {% endfor %}

@@ -50,14 +50,10 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{% url 'abarrotes' %}"><i class="bi bi-filter"></i> Abarrotes</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Carnes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'carniceria' %}"><i class="bi bi-filter"></i> Carnes</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="{% url 'productos' %}">
-                            <i class="bi bi-tag"></i><strong> Productos</strong>
-                        </a>
-                    </li>                    
+                                      
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i><strong> Cuenta</strong>
@@ -70,20 +66,11 @@
                             <li><a class="dropdown-item" href="{% url 'registro' %}" target="_blank"><i class="bi bi-person-plus"></i> Registrarse</a></li>
                         </ul>
                     </li>                    
-                    <li class="nav-item dropdown mx-3">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="carritoDropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-cart"></i>
-                            <span id="carritoCantidad" class="badge bg-secondary">0</span>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="{% url 'productos' %}">
+                            <i class="bi bi-cart"></i><strong></strong>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="carritoDropdown">
-                            <div id="carrito">
-                                <table id="lista-carrito">
-                                    
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                            </div>
-                        </div>
-                    </li>
+                    </li>  
                 </ul>
             </div>
         </div>
@@ -127,8 +114,55 @@
             </div>
         </div>
     </div>
+
+    <br><br>
+    <br><br>
+    <br><br>
     
+    <footer class="bg-success text-dark pt-5 pb-4 ">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light"><strong>¡VISÍTENOS!</strong></h5>
+                    <hr class="mb-4">
+                    <p>
+                        <strong>Cochrane 513, 5190000 Valdivia, Los Ríos</strong>
+                    </p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light"><strong>Contacto</h5></strong>
+                    <hr class="mb-4">
+                    <p>
+                        <li class="fas fa-envelope me-3"><strong>Valdivia: 9 6506 8662</strong> </li>
+                    </p>                   
+                </div>
+                <hr class="mb-4">
     
+                <div class="text-center mb-2">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light"><strong>NUESTRAS REDES SOCIALES</strong></h5>
+                </div>
+                <div class="text-center">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.facebook.com" class="text-light"><i class="bi bi-facebook"></i></a> 
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://twitter.com" class="text-light"><i class="bi bi-twitter"></i></a> 
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.youtube.com" class="text-light"><i class="bi bi-youtube"></i></a> 
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.instagram.com" class="text-light"><i class="bi bi-instagram"></i></a> 
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.pinterest.cl" class="text-light"><i class="bi bi-pinterest"></i></a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     
     
 

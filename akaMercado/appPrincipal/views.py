@@ -170,6 +170,10 @@ def abarrotes(request):
     productos_abarrotes = Productos.objects.filter(categoria='Abarrotes')
     return render(request, 'abarrotes.html', {'productos_abarrotes': productos_abarrotes})
 
+def carniceria(request):
+    productos_carniceria = Productos.objects.filter(categoria='Carnicería')
+    return render(request, 'carniceria.html', {'productos_carniceria': productos_carniceria})
+
 def productos(request):
     productos = Productos.objects.all()
     return render(request, 'productos.html', {'productos' : productos})

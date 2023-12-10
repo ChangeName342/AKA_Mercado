@@ -51,14 +51,9 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{% url 'abarrotes' %}"><i class="bi bi-filter"></i> Abarrotes</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Carnes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'carniceria' %}"><i class="bi bi-filter"></i> Carnes</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="{% url 'productos' %}">
-                            <i class="bi bi-tag"></i><strong> Productos</strong>
-                        </a>
-                    </li>                    
+                    </li>                   
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <strong>Cuenta</strong>
@@ -73,19 +68,11 @@
                             </li>
                         </ul>
                     </li>                  
-                    <li class="nav-item dropdown mx-3">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="carritoDropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-cart"></i>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="{% url 'productos' %}">
+                            <i class="bi bi-cart"></i><strong></strong>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="carritoDropdown">
-                            <div id="carrito">
-                                <table id="lista-carrito">
-                                    
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                            </div>
-                        </div>
-                    </li>
+                    </li> 
                 </ul>
             </div>
         </div>
@@ -129,7 +116,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 text-center" id="link1">
-                    <a href="#" class="custom-link">
+                    <a href="{% url 'carniceria' %}" class="custom-link">
                         <h2 class="text-white green-border rounded-pill p-3 d-flex align-items-center justify-content-center animate-hover">Carnes</h2>
                         <img src="{% static 'images/carnes.jpeg' %}" class="img-fluid rounded w-100 h-100 animate-hover" alt="">
                         <button class="btn btn-danger mt-3 animate-hover">Comprar</button>

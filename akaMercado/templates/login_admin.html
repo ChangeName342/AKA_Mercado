@@ -48,14 +48,10 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{% url 'abarrotes' %}"><i class="bi bi-filter"></i> Abarrotes</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-filter"></i> Carnes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'carniceria' %}"><i class="bi bi-filter"></i> Carnes</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="{% url 'productos' %}">
-                            <i class="bi bi-tag"></i><strong> Productos</strong>
-                        </a>
-                    </li>                    
+                                    
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i><strong> Cuenta</strong>
@@ -68,19 +64,11 @@
                             <li><a class="dropdown-item" href="{% url 'registro' %}" target="_blank"><i class="bi bi-person-plus"></i> Registrarse</a></li>
                         </ul>
                     </li>                    
-                    <li class="nav-item dropdown mx-3">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="carritoDropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-cart"></i>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="{% url 'productos' %}">
+                            <i class="bi bi-cart"></i><strong></strong>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="carritoDropdown">
-                            <div id="carrito">
-                                <table id="lista-carrito">
-                                    
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                            </div>
-                        </div>
-                    </li>
+                    </li>    
                 </ul>
             </div>
         </div>
