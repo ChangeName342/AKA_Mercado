@@ -7,7 +7,6 @@
         <tr>
           <th scope="col">NOMBRE</th>
           <th scope="col">PRECIO</th>
-          <th scope="col">CANTIDAD</th>
         </tr>
       </thead>
       <tbody>
@@ -16,8 +15,7 @@
             <tr>
               <td>{{ value.nombre }}</td>
               <td>${{ value.acumulado }}</td>
-              <td>{{ value.precio }}
-              </td>
+              <td>{{ value.precio }}</td>
             </tr>
           {% endfor %}
         {% else %}
@@ -38,7 +36,7 @@
 
 <div class="row text-center">
     <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger">Limpiar</a></div>
-    <div class="col-6"><a href="#" class="btn btn-success">Guardar</a></div>
+    <div class="col-6"><a href="{% url 'metodo_pago' %}" class="btn btn-success">Guardar</a></div>
 </div>
 </body>
 </html>

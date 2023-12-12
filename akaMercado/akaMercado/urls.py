@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
-from appPrincipal.views import index, registro, nosotros, login_admin, login_cliente, cerrar_sesion, vista_admin, vista_cliente, rotiseria, abarrotes, productos, agregar_producto, eliminar_producto, restar_producto, limpiar_carrito, carniceria
+from appPrincipal.views import index, registro, nosotros, login_admin, login_cliente, cerrar_sesion, vista_admin, vista_cliente, rotiseria, abarrotes, productos, agregar_producto, eliminar_producto, restar_producto, limpiar_carrito, carniceria, pago_exitoso, metodo_pago
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,7 +38,9 @@ urlpatterns = [
     path('eliminar/<int:idProd>/', eliminar_producto, name="Del"),
     path('restar/<int:idProd>/', restar_producto, name="Sub"),
     path('limpiar/', limpiar_carrito, name="CLS"),
-    path('carniceria/', carniceria, name = 'carniceria')
+    path('carniceria/', carniceria, name = 'carniceria'),
+    path('metodo_pago/', metodo_pago, name = 'metodo_pago'),
+    path('pago_exitoso', pago_exitoso, name = 'pago_exitoso')
 
 ]
 
