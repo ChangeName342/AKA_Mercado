@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Gestión de Clientes {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edición de Cliente</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editar_cliente/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="rut" name="rut" value="{{cliente.rut}}" class="form-control" placeholder="Rut"
+                            required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" value="{{cliente.nombre}}" class="form-control" placeholder="Nombre" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="text" id="apellido" name="apellido" value="{{cliente.apellido}}" class="form-control" placeholder="Apellido" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="number" id="fono" name="fono" value="{{cliente.fono}}" class="form-control" placeholder="Telefono" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" value="{{cliente.email}}" class="form-control" placeholder="Tamaño Habitacion" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="password" id="contraseña" name="contraseña" value="{{cliente.contraseña}}" class="form-control" placeholder="Contraseña" required>
+                    </div><br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark btn-block text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

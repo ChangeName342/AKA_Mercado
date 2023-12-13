@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from appPrincipal.forms import FormRegistro
-from appPrincipal.models import Clientes, Productos, Administradores
+from appPrincipal.models import Clientes, Productos, Administradores, Clientes
 from . import forms
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -206,3 +206,52 @@ def metodo_pago(request):
 
 def pago_exitoso(request):
     return render(request, 'pago_exitoso.html')
+
+def gestion_clientes(request):
+    clientes = Clientes.objects.all()
+    messages.success(request, 'Clientes listados!')
+    return render(request, 'gestion_clientes.html', {'clientes': clientes})
+
+def registrar_cliente(request):
+    rut = request.POST['rut']
+    nombre = request.POST['nombre']
+    apellido = request.POST['apellido']
+    fono = request.POST['fono']
+    email = request.POST['email']
+    contraseña = request.POST['contraseña']
+
+    cliente = Clientes.objects.create(rut = rut, nombre = nombre, apellido = apellido, fono = fono, email = email, contraseña = contraseña)
+    messages.success(request, 'Cliente registrado!')
+    return redirect('vista_admin')
+
+def edicion_cliente(request, rut):
+    cliente = Clientes.objects.get(rut = rut)
+    return render(request, "edicion_cliente.html", {"cliente": cliente})
+
+def editar_cliente(request):
+    rut = request.POST['rut']
+    nombre = request.POST['nombre']
+    apellido = request.POST['apellido']
+    fono = request.POST['fono']
+    email = request.POST['email']
+    contraseña = request.POST['contraseña']
+
+    cliente = Clientes.objects.get(rut = rut)
+    cliente.nombre = nombre
+    cliente.apellido = apellido
+    cliente.fono = fono
+    cliente.email = email
+    cliente.contraseña = contraseña
+
+    cliente.save()
+
+    messages.success(request, 'Datos del cliente actualizados!')
+    return redirect('vista_admin')
+
+def eliminar_cliente(request, rut):
+    cliente = Clientes.objects.get(rut = rut)
+    cliente.delete()
+
+    messages.success(request, 'Cliente eliminado!')
+
+    return redirect('vista_admin')

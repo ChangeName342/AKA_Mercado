@@ -72,7 +72,7 @@
                         <td>{{p.cantidad}}</td>
                         <td>{{p.descripcion}}</td>
                         <td>{{p.categoria}}</td>
-                        <td><a href="{% url 'edicion_producto' idProd=p.idProd %}" class="btn btn-info">Editar</a></td>
+                        <td><a href="{% url 'edicion_producto' idProd=p.idProd %}" class="btn btn-success">Editar</a></td>
                         <td><a href="{% url 'eliminar_producto' idProd=p.idProd %}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                     </tr>
                     {% endfor %}
