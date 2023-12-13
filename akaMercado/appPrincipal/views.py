@@ -178,21 +178,21 @@ def productos(request):
     productos = Productos.objects.all()
     return render(request, 'productos.html', {'productos' : productos})
 
-def agregar_producto(request, idProd):
+def agregar_producto(request, producto_id):
     carrito = Carrito(request)
-    producto = Productos.objects.get(idProd=idProd)
+    producto = Productos.objects.get(idProd=producto_id)
     carrito.agregar(producto)
     return redirect("productos")
 
-def eliminar_producto(request, idProd):
+def eliminar_productos(request, producto_id):
     carrito = Carrito(request)
-    producto = Productos.objects.get(idProd=idProd)
+    producto = Productos.objects.get(idProd=producto_id)
     carrito.eliminar(producto)
     return redirect("productos")
 
-def restar_producto(request, idProd):
+def restar_producto(request, producto_id):
     carrito = Carrito(request)
-    producto = Productos.objects.get(idProd=idProd)
+    producto = Productos.objects.get(idProd = producto_id)
     carrito.restar(producto)
     return redirect("productos")
 
