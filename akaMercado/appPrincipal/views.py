@@ -201,12 +201,6 @@ def limpiar_carrito(request):
     carrito.limpiar()
     return redirect("productos")
 
-def metodo_pago(request):
-    return render(request, 'metodo_pago.html')
-
-def pago_exitoso(request):
-    return render(request, 'pago_exitoso.html')
-
 def gestion_clientes(request):
     clientes = Clientes.objects.all()
     messages.success(request, 'Clientes listados!')
