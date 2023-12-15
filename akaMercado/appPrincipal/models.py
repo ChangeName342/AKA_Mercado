@@ -25,7 +25,7 @@ class Pedidos(models.Model):
     estado = models.CharField(max_length=45, choices=OPCIONES_ESTADO)
     tipo_entrega = models.CharField(max_length=45, choices=ENTREGA)
     precio = models.IntegerField()
-    Clientes_rut = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+    Clientes_rut = models.ForeignKey(Clientes, on_delete=models.CASCADE, null = True, blank = True)
 
     def calcular_total(self):
         productos_pedido = Productos_has_Pedidos.objects.filter(Pedidos_id=self)
@@ -80,3 +80,4 @@ class Administradores(models.Model):
 class Productos_has_Pedidos(models.Model):
     Productos_id = models.ForeignKey(Productos, on_delete=models.CASCADE)
     Pedidos_id = models.ForeignKey(Pedidos, on_delete=models.CASCADE)
+    cantidad = models.IntegerField(default=1)

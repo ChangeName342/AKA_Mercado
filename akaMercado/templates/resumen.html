@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Compra</title>
+    <style>
+        /* Estilos adicionales para mejorar el diseño */
+        /* Agrega estilos CSS aquí */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Resumen de Compra</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Precio Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos_pedido %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.cantidad }}</td>
+                    <td>${{ producto.precio_unitario }}</td>
+                    <td>${{ producto.precio_total }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

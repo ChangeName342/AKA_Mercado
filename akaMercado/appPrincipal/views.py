@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from appPrincipal.forms import FormRegistro
-from appPrincipal.models import Clientes, Productos, Administradores, Clientes
+from appPrincipal.models import Clientes, Productos, Administradores, Clientes, Pedidos, Productos_has_Pedidos
 from . import forms
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from appPrincipal.Carrito import Carrito
+from datetime import datetime
+from django.contrib.auth.models import User 
 
 # Create your views here.
 def index(request):
@@ -249,3 +251,20 @@ def eliminar_cliente(request, rut):
     messages.success(request, 'Cliente eliminado!')
 
     return redirect('vista_admin')
+
+def resumen_compra(request):
+    carrito = request.session.get('carrito', {})
+    productos_pedido = []
+
+    for producto_id, item in carrito.items():
+        producto = Productos.objects.get(idProd=producto_id)
+        precio_unitario = item['acumulado'] / item['cantidad']
+        detalle_producto = {
+            'nombre': producto.nombre,
+            'cantidad': item['cantidad'],
+            'precio_unitario': precio_unitario,
+            'precio_total': item['acumulado']
+        }
+        productos_pedido.append(detalle_producto)
+
+    return render(request, 'resumen.html', {'productos_pedido': productos_pedido})
