@@ -22,7 +22,7 @@ from appPrincipal.views import (
     index, registro, nosotros, login_admin, login_cliente, cerrar_sesion, 
     vista_admin, vista_cliente, rotiseria, abarrotes, productos, agregar_producto,
     eliminar_producto, restar_producto, limpiar_carrito, carniceria, eliminar_productos,
-    resumen_compra
+    resumen_compra, confirmacion
 )
 
 urlpatterns = [
@@ -45,7 +45,7 @@ urlpatterns = [
     path('limpiar/', limpiar_carrito, name="CLS"),
     path('carniceria/', carniceria, name = 'carniceria'),
     path('resumen_compra/', resumen_compra, name = 'resumen_compra'),
-
+    path('confirmacion/', confirmacion, name = 'confirmacion'),
 ]
 
 if settings.DEBUG:

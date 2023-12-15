@@ -268,3 +268,6 @@ def resumen_compra(request):
         productos_pedido.append(detalle_producto)
 
     return render(request, 'resumen.html', {'productos_pedido': productos_pedido})
+
+def confirmacion(request):
+    return render(request, 'confirmacion.html')

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKÁ Mercado - Pago exitoso</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKÁ Mercado - Método de pago</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="{% static 'scripts/carrito.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}">
+    <link rel="icon" href="{% static 'images/logo.ico' %}">
+    <link rel="stylesheet" href="{% static 'styles/nav.css' %}">
+    <script src="{% static 'scripts/nav.js' %}"></script>
+    <script src="{% static 'scripts/section-home.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'styles/section-home.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/mapa.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/carrito.css' %}">
+</head>
+<style>
+    body {
+        color: white;
+        background-color: #343a40;
+    }
+
+    .custom-container {
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 50px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .table-container {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .btn-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .alert-success {
+        background-color: #28a745;
+        border-color: #218838;
+        color: #ffffff;
+    }
+
+    .btn-primary {
+        background-color: #dc3545;
+        border: none;
+    }
+</style>
+</head>
+<body class="bg-dark"> 
+    <div class="container mt-5 custom-container">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">¡Pago Realizado!</h4>
+            <p>Te esperamos en AKÁ Mercado.</p>
+            <hr>
+            <p class="mb-0">Gracias por tu compra.</p>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="alert alert-primary text-center" role="alert">
+            <table class="table table-bordered d-inline-block">
+                <thead>
+                    <tr>
+                        <th scope="row" colspan="3">CARRITO</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">CANTIDAD</th>
+                        <th scope="col">PRECIO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if request.session.carrito.items %}
+                        {% for key, value in request.session.carrito.items %}
+                            <tr>
+                                <td>{{value.nombre}}</td>
+                                <td>{{value.cantidad}}</td>
+                                <td>${{value.acumulado}}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="3">
+                                <div class="alert alert-danger text-center"> Sin Productos </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th scope="row">Total:</th>
+                        <td colspan="2">$ {{total_carrito}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container-fluid btn-container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{% url 'home' %}" class="btn btn-primary text-center">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
